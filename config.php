@@ -1,7 +1,2 @@
 <?php
-$con = mysql_connect("localhost", "user", "password");
-if (!$con)
-{
-die('Could not connect: ' . mysql_error());
-}
-mysql_select_db("bf4statsdb");
+$con = mysqli_connect("localhost", "user", "password", "bf4statsdb") or die("Error " . mysqli_error($con));
