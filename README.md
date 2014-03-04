@@ -8,7 +8,10 @@ Reportfeed.php shows your latest reports as RSS Feed, see example: http://nbfc.n
 
 Please contribute if you have anything to correct or add.
 
-
+This is how imported bans look like in Xenforo:
 <img src="http://i.imgur.com/jyjt653.png" alt="">
+
+And from the post content:
+<img src="http://i.imgur.com/8JMkFBy.png" alt="">
 
 I have created this to educate myself, as i'm by no means a coder. (i just understand the logic) ;-)
