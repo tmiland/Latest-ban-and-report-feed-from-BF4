@@ -9,6 +9,6 @@ Reportfeed.php shows your latest reports as RSS Feed, see example: http://nbfc.n
 Please contribute if you have anything to correct or add.
 
 
-<a href="http://i.imgur.com/jyjt653.png"></a>
+<img src="http://i.imgur.com/jyjt653.png" alt="">
 
 I have created this to educate myself, as i'm by no means a coder. (i just understand the logic) ;-)
