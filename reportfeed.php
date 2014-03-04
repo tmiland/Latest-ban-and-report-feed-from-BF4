@@ -3,7 +3,7 @@ include("config.php");
     $sql    =    "SELECT `adkats_records_main`.*,`tbl_server`.`ServerName` FROM `adkats_records_main` INNER JOIN `tbl_server` ON `tbl_server`.`ServerID` = `adkats_records_main`.`server_id` WHERE `adkats_records_main`.`command_type` = 18 ORDER BY `record_time` DESC LIMIT 50";
     $query    = mysql_query($sql) or die(mysql_error());
 
-    $atomlink = "http://nbfc.no/feed/banfeed.php";
+    $atomlink = "http://nbfc.no/feed/reportfeed.php";
     $title = "nbfc.no | Latest Reports";
     $titledescription = "The Norwegian Battlefield Community";
     $link = "http://www.nbfc.no";
