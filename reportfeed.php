@@ -1,7 +1,7 @@
 <?php
 include("config.php");
     $sql    =    "SELECT `adkats_records_main`.*,`tbl_server`.`ServerName` FROM `adkats_records_main` INNER JOIN `tbl_server` ON `tbl_server`.`ServerID` = `adkats_records_main`.`server_id` WHERE `adkats_records_main`.`command_type` = 18 ORDER BY `record_time` DESC LIMIT 50";
-    $query    = mysql_query($sql) or die(mysql_error());
+    $query    = mysqli_query($con, $sql) or die(mysqli_error($con));
 
     $atomlink = "http://nbfc.no/feed/banfeed.php";
     $title = "nbfc.no | Latest Reports";
@@ -21,7 +21,7 @@ header("Content-type: text/xml");
         <description>$titledescription</description>";
 
         //Get info
-        while($row = mysql_fetch_array($query)) {
+        while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
 			if(strpos($row['record_message'], 'Temporary') !== FALSE)
 			{
 				continue;
