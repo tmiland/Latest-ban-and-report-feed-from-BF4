@@ -27,7 +27,7 @@ header("Content-type: text/xml");
 				continue;
 			}
             $title            = $row['source_name'] . ' Banned: ' . $row['target_name'];
-            $description    = htmlentities('<div>') . $row['source_name'] . htmlentities(' Banned: <a href="http://bf4db.com/players?name=') . $row['target_name'] . htmlentities('">') . $row['target_name'] . htmlentities('</a></div></br><div> Server: ') . htmlspecialchars($row['ServerName']) . htmlentities('</div></br></br>');
+            $description    = htmlspecialchars($row['source_name'] . ' Banned: <a href="http://bf4db.com/players?name=' . $row['target_name'] . '">' . $row['target_name'] . '</a></div></br><div> Server: ' . $row['ServerName'] . '</div></br></br>');
             $message        = ' Message: ' . htmlspecialchars($row['record_message']);
             $pubdate        = date('r', strtotime($row['record_time']));
             echo "
