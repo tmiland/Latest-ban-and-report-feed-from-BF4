@@ -1,6 +1,6 @@
 <?php
 include("config.php");
-    $sql    =    "SELECT `adkats_records_main`.*,`tbl_server`.`ServerName` FROM `adkats_records_main` INNER JOIN `tbl_server` ON `tbl_server`.`ServerID` = `adkats_records_main`.`server_id` WHERE `adkats_records_main`.`command_type` = 8 ORDER BY `record_time` DESC LIMIT 50";
+    $sql    =    "SELECT `adkats_records_main`.*,`tbl_server`.`ServerName` FROM `adkats_records_main` INNER JOIN `tbl_server` ON `tbl_server`.`ServerID` = `adkats_records_main`.`server_id` WHERE `adkats_records_main`.`command_type` = 8 ORDER BY `record_time` DESC LIMIT 20";
     $query    = mysqli_query($con, $sql) or die(mysqli_error($con));
 
     $atomlink = "http://nbfc.no/feed/banfeed.php";
@@ -30,6 +30,7 @@ header("Content-type: text/xml");
             $description    = htmlspecialchars($row['source_name'] . ' Banned: <a href="http://bf4db.com/players?name=' . $row['target_name'] . '">' . $row['target_name'] . '</a></div></br><div> Server: ' . $row['ServerName'] . '</div></br></br>');
             $message        = ' Message: ' . htmlspecialchars($row['record_message']);
             $pubdate        = date('r', strtotime($row['record_time']));
+			$guidlink		= 'http://bf4db.com/players?name=' . $row['target_name'];
             echo "
                 <item>
                     <title>$title</title>
@@ -38,6 +39,7 @@ header("Content-type: text/xml");
                             $message
                         </description>
                     <pubDate>$pubdate</pubDate>
+					<guid isPermaLink='false'>$guidlink</guid>
                 </item>";
         }
 echo "</channel></rss>";
